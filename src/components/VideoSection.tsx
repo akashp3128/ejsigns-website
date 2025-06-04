@@ -1,138 +1,64 @@
-import { useRef, useEffect, useState, useCallback } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import YouTube from 'react-youtube';
-
-interface VideoPlayerState {
-  isPlaying: boolean;
-  progress: number;
-  volume: number;
-  isFullscreen: boolean;
-  quality: string;
-  isPictureInPicture: boolean;
-  loadingState: 'idle' | 'loading' | 'loaded' | 'error';
-}
 
 function VideoSection() {
   const videoRef = useRef<any>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [videoState, setVideoState] = useState<VideoPlayerState>({
-    isPlaying: false,
-    progress: 0,
-    volume: 80,
-    isFullscreen: false,
-    quality: 'auto',
-    isPictureInPicture: false,
-    loadingState: 'idle'
-  });
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
-  // Advanced motion values for smooth interactions
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 300, damping: 30 });
-  const springY = useSpring(mouseY, { stiffness: 300, damping: 30 });
-
-  // Intersection Observer for performance optimization
-  const [isIntersecting, setIsIntersecting] = useState(false);
-
+  // Simple intersection observer for performance
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
         if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-          setVideoState(prev => ({ ...prev, loadingState: 'loading' }));
+          setIsLoading(false);
         }
       },
-      { 
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-        rootMargin: '50px'
-      }
+      { threshold: 0.5 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    const container = document.querySelector('#video-container');
+    if (container) {
+      observer.observe(container);
     }
 
     return () => observer.disconnect();
   }, []);
 
-  // Enhanced video event handlers
-  const onReady = useCallback((event: any) => {
+  const onReady = (event: any) => {
     videoRef.current = event.target;
-    setVideoState(prev => ({ ...prev, loadingState: 'loaded' }));
-  }, []);
+    setIsLoading(false);
+  };
 
-  const onStateChange = useCallback((event: any) => {
-    const isPlaying = event.data === 1;
-    setVideoState(prev => ({ ...prev, isPlaying }));
-  }, []);
+  const onStateChange = (event: any) => {
+    setIsPlaying(event.data === 1); // 1 = playing
+  };
 
-  const onError = useCallback((error: any) => {
-    console.error('Video error:', error);
-    setVideoState(prev => ({ ...prev, loadingState: 'error' }));
-  }, []);
+  const onError = () => {
+    setHasError(true);
+    setIsLoading(false);
+  };
 
-  // Advanced mouse tracking for interactive effects
-  const handleMouseMove = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
-    
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width;
-    const y = (event.clientY - rect.top) / rect.height;
-    
-    mouseX.set((x - 0.5) * 20);
-    mouseY.set((y - 0.5) * 20);
-  }, [mouseX, mouseY]);
-
-  // Picture-in-Picture support
-  const togglePictureInPicture = useCallback(async () => {
-    if (!videoRef.current) return;
-    
-    try {
-      const iframe = videoRef.current.getIframe();
-      if (document.pictureInPictureEnabled && iframe) {
-        if (document.pictureInPictureElement) {
-          await document.exitPictureInPicture();
-          setVideoState(prev => ({ ...prev, isPictureInPicture: false }));
-        } else {
-          await iframe.requestPictureInPicture();
-          setVideoState(prev => ({ ...prev, isPictureInPicture: true }));
-        }
-      }
-    } catch (error) {
-      console.error('Picture-in-Picture error:', error);
-    }
-  }, []);
-
-  // Advanced YouTube player options
   const opts = {
     height: '100%',
     width: '100%',
     playerVars: {
       autoplay: 0,
-      mute: 1,
+      mute: 0,
       controls: 1,
       showinfo: 0,
       rel: 0,
       modestbranding: 1,
-      iv_load_policy: 3,
-      cc_load_policy: 1, // Enable captions for accessibility
-      hl: 'en',
       playsinline: 1,
-      enablejsapi: 1,
-      origin: window.location.origin
     },
   };
 
   return (
     <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
-      {/* Enhanced Background with CSS Custom Properties */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          '--mouse-x': `${springX.get()}px`,
-          '--mouse-y': `${springY.get()}px`
-        } as React.CSSProperties}
-      >
+      {/* Beautiful background elements */}
+      <div className="absolute inset-0">
         <motion.div
           animate={{ 
             scale: [1, 1.2, 1],
@@ -141,9 +67,6 @@ function VideoSection() {
           }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           className="absolute top-1/4 -right-32 w-64 h-64 bg-gradient-to-br from-accent-500/10 to-secondary-500/10 rounded-full blur-3xl"
-          style={{
-            transform: `translate(calc(var(--mouse-x) * 0.1), calc(var(--mouse-y) * 0.1))`
-          }}
         />
         <motion.div
           animate={{ 
@@ -153,13 +76,11 @@ function VideoSection() {
           }}
           transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
           className="absolute bottom-1/4 -left-32 w-64 h-64 bg-gradient-to-tr from-secondary-500/10 to-accent-500/10 rounded-full blur-3xl"
-          style={{
-            transform: `translate(calc(var(--mouse-x) * -0.1), calc(var(--mouse-y) * -0.1))`
-          }}
         />
       </div>
 
       <div className="container mx-auto text-center px-6 relative z-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -195,30 +116,24 @@ function VideoSection() {
           </div>
         </motion.div>
 
-        {/* Enhanced Video Container */}
+        {/* Video Container */}
         <div className="mx-auto max-w-5xl">
           <motion.div 
-            ref={containerRef}
+            id="video-container"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.02, y: -5 }}
-            onMouseMove={handleMouseMove}
             className="group relative rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900"
           >
-            {/* Enhanced glowing border with mouse tracking */}
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-r from-accent-500/20 via-secondary-500/20 to-accent-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl blur-xl"
-              style={{
-                background: `radial-gradient(circle at ${springX.get() + 50}% ${springY.get() + 50}%, rgba(245, 158, 11, 0.3) 0%, rgba(59, 130, 246, 0.2) 50%, rgba(245, 158, 11, 0.1) 100%)`
-              }}
-            />
+            {/* Glowing border effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-accent-500/20 via-secondary-500/20 to-accent-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl blur-xl"></div>
             
-            {/* Video container with aspect ratio and containment */}
+            {/* Video container */}
             <div className="relative rounded-3xl overflow-hidden border border-neutral-200/20 aspect-video bg-neutral-900">
               {/* Loading state */}
-              {videoState.loadingState === 'loading' && (
+              {isLoading && (
                 <div className="absolute inset-0 flex items-center justify-center bg-neutral-900 z-10">
                   <motion.div
                     animate={{ rotate: 360 }}
@@ -229,10 +144,10 @@ function VideoSection() {
                 </div>
               )}
 
-              {/* Enhanced YouTube player with conditional rendering */}
-              {isIntersecting && (
+              {/* YouTube player */}
+              {!isLoading && !hasError && (
                 <YouTube
-                  videoId="dQw4w9WgXcQ" // Replace with actual video ID
+                  videoId="dQw4w9WgXcQ" // Replace with your actual video ID
                   opts={opts}
                   onReady={onReady}
                   onStateChange={onStateChange}
@@ -242,61 +157,23 @@ function VideoSection() {
                 />
               )}
 
-              {/* Custom control overlay */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end justify-between p-6 pointer-events-none group-hover:pointer-events-auto transition-all duration-300"
-              >
-                <div className="flex items-center space-x-4">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => videoRef.current?.playVideo()}
-                    className="pointer-events-auto bg-white/20 backdrop-blur-sm rounded-full p-2 text-white hover:bg-white/30 transition-colors"
-                    aria-label={videoState.isPlaying ? "Pause video" : "Play video"}
-                  >
-                    {videoState.isPlaying ? (
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-                      </svg>
-                    ) : (
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    )}
-                  </motion.button>
+              {/* Error state with beautiful fallback */}
+              {hasError && (
+                <div className="absolute inset-0 bg-gradient-to-br from-neutral-100 to-neutral-50 flex items-center justify-center border border-neutral-200 cursor-pointer relative overflow-hidden">
+                  {/* Animated background pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0" style={{
+                      backgroundImage: `
+                        linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%), 
+                        linear-gradient(-45deg, rgba(0,0,0,0.1) 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.1) 75%), 
+                        linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.1) 75%)
+                      `,
+                      backgroundSize: '20px 20px',
+                      backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px'
+                    }}></div>
+                  </div>
 
-                  {/* Picture-in-Picture button */}
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={togglePictureInPicture}
-                    className="pointer-events-auto bg-white/20 backdrop-blur-sm rounded-full p-2 text-white hover:bg-white/30 transition-colors"
-                    aria-label="Picture in picture"
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zm-10-7h9v6h-9z"/>
-                    </svg>
-                  </motion.button>
-                </div>
-
-                {/* Quality and state indicators */}
-                <div className="flex items-center space-x-2">
-                  <span className="text-white/80 text-sm bg-black/30 px-2 py-1 rounded-full backdrop-blur-sm">
-                    {videoState.quality}
-                  </span>
-                  {videoState.isPictureInPicture && (
-                    <span className="text-white/80 text-sm bg-green-500/30 px-2 py-1 rounded-full backdrop-blur-sm">
-                      PiP
-                    </span>
-                  )}
-                </div>
-              </motion.div>
-
-              {/* Error state */}
-              {videoState.loadingState === 'error' && (
-                <div className="absolute inset-0 bg-neutral-100 flex items-center justify-center border border-neutral-200 cursor-pointer relative overflow-hidden">
                   <div className="text-center relative z-10">
                     <motion.div 
                       whileHover={{ scale: 1.1, rotate: 5 }}
@@ -304,25 +181,64 @@ function VideoSection() {
                       transition={{ duration: 0.2 }}
                       className="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-accent-500 to-accent-600 rounded-full flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow duration-300"
                     >
-                      <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <motion.svg 
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.8 }}
+                        viewport={{ once: true }}
+                        className="w-10 h-10 text-white ml-1" 
+                        fill="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M8 5v14l11-7z"/>
-                      </svg>
+                      </motion.svg>
                     </motion.div>
-                    <p className="text-neutral-700 text-xl font-bold mb-2">Custom Process Video</p>
-                    <p className="text-neutral-500 text-base">Showcasing our professional printing and embroidery process</p>
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                      viewport={{ once: true }}
+                    >
+                      <p className="text-neutral-700 text-xl font-bold mb-2">
+                        Custom Process Video
+                      </p>
+                    </motion.div>
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 }}
+                      viewport={{ once: true }}
+                    >
+                      <p className="text-neutral-500 text-base">
+                        Showcasing our professional printing and embroidery process
+                      </p>
+                    </motion.div>
                   </div>
                 </div>
               )}
-            </div>
 
-            {/* Enhanced accessibility features */}
-            <div className="sr-only">
-              <p>Video player showing our custom printing and embroidery process</p>
-              <p>Use spacebar to play/pause, arrow keys to seek</p>
+              {/* Simple play indicator */}
+              {!isPlaying && !isLoading && !hasError && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="absolute inset-0 bg-black/20 flex items-center justify-center pointer-events-none"
+                >
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="w-16 h-16 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl"
+                  >
+                    <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </motion.div>
+                </motion.div>
+              )}
             </div>
           </motion.div>
 
-          {/* Enhanced video features with better grid layout */}
+          {/* Video features */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
