@@ -99,7 +99,7 @@ function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 container mx-auto text-center px-6 py-20"
+        className="relative z-10 container mx-auto text-center px-6 py-20 max-w-7xl"
       >
         {/* Badge */}
         <motion.div
@@ -123,12 +123,14 @@ function Hero() {
         </motion.h1>
 
         {/* Subtitle */}
-        <motion.p 
+        <motion.div 
           variants={itemVariants}
-          className="text-xl md:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+          className="mb-8 max-w-4xl mx-auto"
         >
-          Custom creations, crafted with precision. Professional embroidery and printing services for businesses, teams, and organizations.
-        </motion.p>
+          <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed">
+            Custom creations, crafted with precision. Professional embroidery and printing services for businesses, teams, and organizations.
+          </p>
+        </motion.div>
 
         {/* Feature Pills */}
         <motion.div
