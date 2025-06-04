@@ -100,7 +100,7 @@ function PortfolioGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-16 max-w-4xl mx-auto"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -116,9 +116,11 @@ function PortfolioGrid() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-primary-900">
             Our <span className="text-gradient bg-gradient-to-r from-accent-500 to-secondary-600">Portfolio</span>
           </h2>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-            Discover our recent work showcasing exceptional craftsmanship, attention to detail, and commitment to quality
-          </p>
+          <div className="w-full max-w-4xl mx-auto">
+            <p className="text-xl text-neutral-600 leading-relaxed">
+              Discover our recent work showcasing exceptional craftsmanship, attention to detail, and commitment to quality
+            </p>
+          </div>
         </motion.div>
 
         <motion.div 

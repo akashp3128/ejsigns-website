@@ -67,7 +67,7 @@ function VideoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-16 max-w-5xl mx-auto"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -83,9 +83,11 @@ function VideoSection() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-primary-900">
             See Our <span className="text-gradient bg-gradient-to-r from-accent-500 to-secondary-600">Craftsmanship</span>
           </h2>
-          <p className="text-xl text-neutral-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Watch how we bring your custom designs to life with precision, quality, and attention to detail that sets us apart
-          </p>
+          <div className="w-full max-w-4xl mx-auto">
+            <p className="text-xl text-neutral-600 leading-relaxed">
+              Watch how we bring your custom designs to life with precision, quality, and attention to detail that sets us apart
+            </p>
+          </div>
         </motion.div>
 
         <div className="mx-auto max-w-5xl">

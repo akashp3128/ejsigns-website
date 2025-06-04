@@ -76,7 +76,7 @@ function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-16 max-w-5xl mx-auto"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -92,9 +92,11 @@ function Testimonials() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-primary-900">
             What Our <span className="text-gradient bg-gradient-to-r from-accent-500 to-secondary-600">Clients Say</span>
           </h2>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-            Don't just take our word for it - hear from our satisfied customers who've experienced our exceptional service
-          </p>
+          <div className="w-full max-w-4xl mx-auto">
+            <p className="text-xl text-neutral-600 leading-relaxed">
+              Don't just take our word for it - hear from our satisfied customers who've experienced our exceptional service
+            </p>
+          </div>
         </motion.div>
 
         <motion.div 
