@@ -93,11 +93,9 @@ function Footer() {
               <p className="text-xl text-neutral-300 mb-4 font-medium">
                 Custom Creations, Crafted with Precision
               </p>
-              <div className="max-w-2xl">
-                <p className="text-neutral-400 leading-relaxed">
-                  Professional printing and embroidery services for businesses, sports teams, events, and healthcare companies. Quality you can trust, service you can count on.
-                </p>
-              </div>
+              <p className="text-neutral-400 leading-relaxed">
+                Professional printing and embroidery services for businesses, sports teams, events, and healthcare companies. Quality you can trust, service you can count on.
+              </p>
             </div>
 
             {/* Contact Info */}
