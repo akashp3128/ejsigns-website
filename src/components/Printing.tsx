@@ -1,76 +1,82 @@
+import { motion } from 'framer-motion';
+
 function Printing() {
   return (
-    <section className="py-16">
-      <div className="container mx-auto max-w-4xl">
-        <h1 className="text-4xl font-bold text-center mb-8">T-Shirt Printing Services</h1>
-        <div className="prose prose-lg mx-auto">
-          <p className="text-lg mb-6">
-            Transform your ideas into wearable art with our premium t-shirt printing services. Using the latest printing technology and high-quality materials, we deliver vibrant, long-lasting designs that make a statement.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-primary-red">Custom T-Shirt Printing</h3>
-              <p className="mb-4">
-                From single pieces to large quantities, we print custom designs on high-quality t-shirts. Perfect for businesses, events, teams, and personal projects.
-              </p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Screen printing for bulk orders</li>
-                <li>Digital printing for small quantities</li>
-                <li>Full-color designs available</li>
-                <li>Various shirt styles and colors</li>
-              </ul>
-            </div>
-            
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-primary-red">Design Services</h3>
-              <p className="mb-4">
-                Don't have a design? No problem! Our creative team can help bring your vision to life with professional design services.
-              </p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Logo design and creation</li>
-                <li>Text and typography services</li>
-                <li>Design consultation</li>
-                <li>File preparation and optimization</li>
-              </ul>
-            </div>
-          </div>
+    <section className="py-20 bg-neutral-50">
+      <div className="container mx-auto px-6">
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl font-bold text-center mb-8 text-primary-900"
+        >
+          <span className="text-gradient bg-gradient-to-r from-accent-500 to-secondary-600">
+            T-Shirt Printing Services
+          </span>
+        </motion.h1>
 
-          <div className="bg-primary-blue text-white p-8 rounded-lg my-12">
-            <h3 className="text-2xl font-semibold mb-4 text-center">Printing Methods</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold mb-2">Screen Printing</h4>
-                <p>Ideal for bulk orders with solid colors. Durable, cost-effective, and produces vibrant colors that last.</p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Digital Printing</h4>
-                <p>Perfect for small quantities and complex designs. Full-color capability with photographic quality results.</p>
-              </div>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="bg-white/80 backdrop-blur-sm border border-neutral-200 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <h2 className="text-2xl font-bold mb-4 text-primary-900">Screen Printing Excellence</h2>
+            <p className="text-neutral-600 leading-relaxed mb-6">
+              High-quality screen printing for t-shirts, hoodies, and apparel. Perfect for events, 
+              teams, businesses, and promotional campaigns with vibrant, long-lasting results.
+            </p>
+            <ul className="space-y-2 text-neutral-600">
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-accent-500 rounded-full mr-3"></span>
+                Custom t-shirt designs
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-accent-500 rounded-full mr-3"></span>
+                Event and promotional apparel
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-accent-500 rounded-full mr-3"></span>
+                Team uniforms and jerseys
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-accent-500 rounded-full mr-3"></span>
+                Multi-color designs available
+              </li>
+            </ul>
+          </motion.div>
 
-          <div className="text-center">
-            <h3 className="text-2xl font-semibold mb-4 text-primary-blue">Industries We Serve</h3>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="p-4 border rounded-lg">
-                <h4 className="font-semibold text-primary-red">Corporate</h4>
-                <p>Employee uniforms and promotional items</p>
-              </div>
-              <div className="p-4 border rounded-lg">
-                <h4 className="font-semibold text-primary-red">Sports Teams</h4>
-                <p>Team jerseys and fan merchandise</p>
-              </div>
-              <div className="p-4 border rounded-lg">
-                <h4 className="font-semibold text-primary-red">Events</h4>
-                <p>Conference shirts and giveaways</p>
-              </div>
-              <div className="p-4 border rounded-lg">
-                <h4 className="font-semibold text-primary-red">Healthcare</h4>
-                <p>Medical facility uniforms</p>
-              </div>
-            </div>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="bg-white/80 backdrop-blur-sm border border-neutral-200 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <h2 className="text-2xl font-bold mb-4 text-primary-900">Bulk Order Specialists</h2>
+            <p className="text-neutral-600 leading-relaxed mb-6">
+              We excel at large quantity orders with competitive pricing and reliable delivery. 
+              Perfect for corporate events, schools, and organizations.
+            </p>
+            <ul className="space-y-2 text-neutral-600">
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-secondary-500 rounded-full mr-3"></span>
+                Volume discounts available
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-secondary-500 rounded-full mr-3"></span>
+                Fast turnaround times
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-secondary-500 rounded-full mr-3"></span>
+                Quality control on every item
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-secondary-500 rounded-full mr-3"></span>
+                Professional packaging
+              </li>
+            </ul>
+          </motion.div>
         </div>
       </div>
     </section>
