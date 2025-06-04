@@ -121,7 +121,7 @@ function ContactForm() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-primary-900">
             Ready to <span className="text-gradient bg-gradient-to-r from-accent-500 to-secondary-600">Start Your Project?</span>
           </h2>
-          <div className="max-w-3xl mx-auto">
+          <div className="w-full max-w-4xl mx-auto">
             <p className="text-xl text-neutral-600 leading-relaxed">
               Send us a message and we'll get back to you within 24 hours with a detailed quote and expert recommendations.
             </p>
