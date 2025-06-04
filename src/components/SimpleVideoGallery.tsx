@@ -58,8 +58,8 @@ const SimpleVideoGallery: React.FC<SimpleVideoGalleryProps> = ({
     <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-neutral-50 to-white relative overflow-hidden">
       {/* Subtle background decoration */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-accent-200 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 sm:w-40 sm:h-40 md:w-56 md:h-56 bg-secondary-200 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-primary-200 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 sm:w-40 sm:h-40 md:w-56 md:h-56 bg-accent-200 rounded-full mix-blend-multiply filter blur-2xl sm:blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -178,7 +178,7 @@ const SimpleVideoGallery: React.FC<SimpleVideoGalleryProps> = ({
 
                 {/* Subtle hover indicator */}
                 <motion.div
-                  className="mt-3 flex items-center text-accent-500 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="mt-3 flex items-center text-primary-600 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   initial={{ x: -10 }}
                   animate={{ x: 0 }}
                 >
@@ -281,7 +281,7 @@ const SimpleVideoGallery: React.FC<SimpleVideoGalleryProps> = ({
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                  className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-accent-500 border-t-transparent rounded-full"
+                  className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-primary-500 border-t-transparent rounded-full"
                 />
               </motion.div>
             </motion.div>

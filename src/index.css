@@ -1,44 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-  /* Modern Color Palette - Inspired by top tech companies */
-  --color-primary: #0f172a; /* Deep slate for primary brand */
-  --color-primary-50: #f8fafc;
-  --color-primary-100: #f1f5f9;
-  --color-primary-200: #e2e8f0;
-  --color-primary-300: #cbd5e1;
-  --color-primary-400: #94a3b8;
-  --color-primary-500: #64748b;
-  --color-primary-600: #475569;
-  --color-primary-700: #334155;
-  --color-primary-800: #1e293b;
-  --color-primary-900: #0f172a;
+  /* Modern Blue & Red Palette - Professional E&J Signs Branding */
+  --color-primary: #1e3a8a; /* Deep royal blue for primary brand */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
   
-  /* Vibrant Accent Colors */
-  --color-accent: #f97316; /* Modern orange instead of basic red */
-  --color-accent-50: #fff7ed;
-  --color-accent-100: #ffedd5;
-  --color-accent-200: #fed7aa;
-  --color-accent-300: #fdba74;
-  --color-accent-400: #fb923c;
-  --color-accent-500: #f97316;
-  --color-accent-600: #ea580c;
-  --color-accent-700: #c2410c;
-  --color-accent-800: #9a3412;
-  --color-accent-900: #7c2d12;
+  /* Modern Red Accent Colors */
+  --color-accent: #dc2626; /* Professional red for impact */
+  --color-accent-50: #fef2f2;
+  --color-accent-100: #fee2e2;
+  --color-accent-200: #fecaca;
+  --color-accent-300: #fca5a5;
+  --color-accent-400: #f87171;
+  --color-accent-500: #ef4444;
+  --color-accent-600: #dc2626;
+  --color-accent-700: #b91c1c;
+  --color-accent-800: #991b1b;
+  --color-accent-900: #7f1d1d;
   
-  /* Secondary Purple Accent */
-  --color-secondary: #7c3aed;
-  --color-secondary-50: #f5f3ff;
-  --color-secondary-100: #ede9fe;
-  --color-secondary-200: #ddd6fe;
-  --color-secondary-300: #c4b5fd;
-  --color-secondary-400: #a78bfa;
-  --color-secondary-500: #8b5cf6;
-  --color-secondary-600: #7c3aed;
-  --color-secondary-700: #6d28d9;
-  --color-secondary-800: #5b21b6;
-  --color-secondary-900: #4c1d95;
+  /* Secondary Blue (Lighter/Sky Blue) */
+  --color-secondary: #0ea5e9;
+  --color-secondary-50: #f0f9ff;
+  --color-secondary-100: #e0f2fe;
+  --color-secondary-200: #bae6fd;
+  --color-secondary-300: #7dd3fc;
+  --color-secondary-400: #38bdf8;
+  --color-secondary-500: #0ea5e9;
+  --color-secondary-600: #0284c7;
+  --color-secondary-700: #0369a1;
+  --color-secondary-800: #075985;
+  --color-secondary-900: #0c4a6e;
   
   /* Modern Neutrals */
   --color-neutral: #6b7280;
@@ -55,7 +55,7 @@
   
   /* Legacy color mapping for backwards compatibility */
   --color-primary-blue: var(--color-primary-800);
-  --color-primary-red: var(--color-accent-500);
+  --color-primary-red: var(--color-accent-600);
   
   /* Enhanced Typography */
   --font-family-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -87,12 +87,26 @@
 /* Custom utility classes */
 .glassmorphism {
   backdrop-filter: blur(16px);
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(30, 58, 138, 0.1); /* Blue tint */
+  border: 1px solid rgba(59, 130, 246, 0.2); /* Blue border */
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-accent-400), var(--color-secondary-500));
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-500));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-blue-red {
+  background: linear-gradient(135deg, var(--color-primary-500), var(--color-accent-600));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-red-blue {
+  background: linear-gradient(135deg, var(--color-accent-500), var(--color-secondary-500));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -103,25 +117,101 @@
 }
 
 .bg-gradient-accent {
-  background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-600));
+  background: linear-gradient(135deg, var(--color-accent-600), var(--color-accent-500));
 }
 
-/* Enhanced scrollbar */
+.bg-gradient-patriotic {
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-600));
+}
+
+/* Enhanced backgrounds with transparency */
+.bg-radial-gradient {
+  background: radial-gradient(ellipse at center, var(--color-primary-800) 0%, transparent 70%);
+}
+
+.bg-radial-gradient-accent {
+  background: radial-gradient(ellipse at center, var(--color-accent-600) 0%, transparent 70%);
+}
+
+/* Enhanced glassmorphism with better transparency */
+.glassmorphism-hero {
+  background: rgba(30, 58, 138, 0.1);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.glassmorphism-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glassmorphism-pill {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glassmorphism-button {
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+}
+
+/* Enhanced shadow variations for transparency */
+.shadow-glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-glow-red {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3), 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-glow-mixed {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.2), 0 0 20px rgba(220, 38, 38, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Particle effect utilities */
+.particle-blue {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, transparent 70%);
+}
+
+.particle-red {
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.6) 0%, transparent 70%);
+}
+
+/* Enhanced text gradient with transparency effects */
+.text-gradient-transparent {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.9), 
+    rgba(220, 38, 38, 0.9), 
+    rgba(59, 130, 246, 0.9)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  animation: gradient-flow 4s ease-in-out infinite;
+}
+
+/* Enhanced scrollbar with blue theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-neutral-100);
+  background: var(--color-primary-50);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-neutral-400);
+  background: var(--color-primary-400);
   border-radius: var(--radius-md);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-neutral-500);
+  background: var(--color-primary-500);
 }
 
 @tailwind base;
@@ -162,7 +252,7 @@
 
   /* Enhanced focus styles for accessibility */
   *:focus {
-    outline: 2px solid #f59e0b;
+    outline: 2px solid var(--color-accent-500);
     outline-offset: 2px;
   }
 
@@ -171,7 +261,7 @@
   }
 
   *:focus-visible {
-    outline: 2px solid #f59e0b;
+    outline: 2px solid var(--color-accent-500);
     outline-offset: 2px;
   }
 
@@ -246,12 +336,12 @@
     }
   }
 
-  /* Enhanced glassmorphism effect */
+  /* Enhanced glassmorphism effect with blue theme */
   .glassmorphism {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(30, 58, 138, 0.8); /* Blue background */
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.1); /* Blue border */
   }
 
   /* Enhanced text gradient */
@@ -304,14 +394,14 @@
     font-size: clamp(3.75rem, 3rem + 3.75vw, 5rem);
   }
 
-  /* Enhanced button styles */
+  /* Enhanced button styles with blue/red theme */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-semibold rounded-lg sm:rounded-xl text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl border border-accent-400/20;
+    @apply inline-flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-accent-600 to-accent-500 hover:from-accent-700 hover:to-accent-600 text-white font-semibold rounded-lg sm:rounded-xl text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl border border-accent-400/20;
     min-height: 44px; /* Touch-friendly minimum */
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-white border border-neutral-300 hover:border-neutral-400 text-neutral-700 hover:text-neutral-900 font-semibold rounded-lg sm:rounded-xl text-sm sm:text-base transition-all duration-300 shadow-sm hover:shadow-md;
+    @apply inline-flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600 text-white font-semibold rounded-lg sm:rounded-xl text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl border border-primary-400/20;
     min-height: 44px; /* Touch-friendly minimum */
   }
 
@@ -336,12 +426,12 @@
 
   /* Enhanced form styles */
   .form-input {
-    @apply w-full px-3 py-2 sm:px-4 sm:py-3 border border-neutral-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-200;
+    @apply w-full px-3 py-2 sm:px-4 sm:py-3 border border-neutral-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
     min-height: 44px; /* Touch-friendly minimum */
   }
 
   .form-textarea {
-    @apply w-full px-3 py-2 sm:px-4 sm:py-3 border border-neutral-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-200 resize-none;
+    @apply w-full px-3 py-2 sm:px-4 sm:py-3 border border-neutral-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-none;
     min-height: 120px;
   }
 
@@ -500,6 +590,15 @@
   }
 }
 
+@keyframes gradient-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 @keyframes pulse-soft {
   0%, 100% {
     opacity: 1;
@@ -547,7 +646,7 @@
   }
 
   .glassmorphism {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(30, 58, 138, 0.95);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
@@ -574,8 +673,8 @@
   :root {
     --text-primary: #f8fafc;
     --text-secondary: #e2e8f0;
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
+    --bg-primary: #1e3a8a;
+    --bg-secondary: #1e40af;
   }
 }
 
@@ -594,7 +693,7 @@
 
   .text-gradient {
     background: none !important;
-    -webkit-text-fill-color: #1f2937 !important;
-    color: #1f2937 !important;
+    -webkit-text-fill-color: #1e3a8a !important;
+    color: #1e3a8a !important;
   }
 }

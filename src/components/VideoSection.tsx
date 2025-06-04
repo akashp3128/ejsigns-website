@@ -69,7 +69,7 @@ function VideoSection() {
             rotate: [0, 180]
           }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 -right-16 sm:-right-32 w-32 h-32 sm:w-48 md:w-64 sm:h-48 md:h-64 bg-gradient-to-br from-accent-500/5 to-secondary-500/5 sm:from-accent-500/10 sm:to-secondary-500/10 rounded-full blur-2xl sm:blur-3xl"
+          className="absolute top-1/4 -right-16 sm:-right-32 w-32 h-32 sm:w-48 md:w-64 sm:h-48 md:h-64 bg-gradient-to-br from-primary-500/5 to-accent-500/5 sm:from-primary-500/10 sm:to-accent-500/10 rounded-full blur-2xl sm:blur-3xl"
         />
         <motion.div
           animate={{ 
@@ -78,7 +78,7 @@ function VideoSection() {
             rotate: [180, 0]
           }}
           transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 -left-16 sm:-left-32 w-32 h-32 sm:w-48 md:w-64 sm:h-48 md:h-64 bg-gradient-to-tr from-secondary-500/5 to-accent-500/5 sm:from-secondary-500/10 sm:to-accent-500/10 rounded-full blur-2xl sm:blur-3xl"
+          className="absolute bottom-1/4 -left-16 sm:-left-32 w-32 h-32 sm:w-48 md:w-64 sm:h-48 md:h-64 bg-gradient-to-tr from-accent-500/5 to-primary-500/5 sm:from-accent-500/10 sm:to-primary-500/10 rounded-full blur-2xl sm:blur-3xl"
         />
       </div>
 
@@ -101,17 +101,17 @@ function VideoSection() {
             <motion.span 
               animate={{ 
                 scale: [1, 1.2, 1],
-                backgroundColor: ['#f59e0b', '#ef4444', '#f59e0b']
+                backgroundColor: ['#2563eb', '#dc2626', '#2563eb']
               }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent-400 rounded-full mr-2"
+              className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary-400 rounded-full mr-2"
             />
             <span className="text-neutral-600 text-xs sm:text-sm font-medium">Our Work in Action</span>
           </motion.div>
 
           {/* Fluid typography with clamp() for perfect scaling */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 text-primary-900 leading-tight">
-            See Our <span className="text-gradient bg-gradient-to-r from-accent-500 to-secondary-600 bg-clip-text text-transparent">Craftsmanship</span>
+            See Our <span className="text-gradient-blue-red bg-gradient-to-r from-primary-500 to-accent-600 bg-clip-text text-transparent">Craftsmanship</span>
           </h2>
           <div className="w-full max-w-4xl mx-auto">
             <p className="text-base sm:text-lg md:text-xl text-neutral-600 leading-relaxed px-4 sm:px-0">
@@ -136,7 +136,7 @@ function VideoSection() {
             className="group relative rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-lg sm:shadow-xl lg:shadow-2xl hover:shadow-2xl lg:hover:shadow-3xl transition-all duration-500 overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900"
           >
             {/* Enhanced glowing border effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-accent-500/10 via-secondary-500/10 to-accent-500/10 sm:from-accent-500/20 sm:via-secondary-500/20 sm:to-accent-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl lg:rounded-3xl blur-xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 via-accent-500/10 to-primary-500/10 sm:from-primary-500/20 sm:via-accent-500/20 sm:to-primary-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl lg:rounded-3xl blur-xl"></div>
             
             {/* Video container with enhanced mobile responsiveness */}
             <div className="relative rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden border border-neutral-200/10 sm:border-neutral-200/20 aspect-video bg-neutral-900">
@@ -146,7 +146,7 @@ function VideoSection() {
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-accent-500 border-t-transparent rounded-full"
+                    className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-primary-500 border-t-transparent rounded-full"
                   />
                   <span className="mt-2 sm:mt-0 sm:ml-3 text-white text-sm sm:text-base">Loading video...</span>
                 </div>
@@ -187,7 +187,7 @@ function VideoSection() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 bg-gradient-to-r from-accent-500 to-accent-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300"
+                      className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 bg-gradient-to-r from-primary-500 to-accent-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                     >
                       <motion.svg 
                         initial={{ scale: 0 }}
@@ -255,10 +255,10 @@ function VideoSection() {
             className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mt-8 sm:mt-10 md:mt-12"
           >
             {[
-              { icon: '🎯', title: 'Precision Work', desc: 'Every detail matters', color: 'from-blue-500 to-blue-600' },
-              { icon: '⚡', title: 'Fast Process', desc: 'Quick turnaround', color: 'from-yellow-500 to-orange-600' },
-              { icon: '🏆', title: 'Quality First', desc: 'Premium materials', color: 'from-green-500 to-emerald-600' },
-              { icon: '✨', title: 'Custom Design', desc: 'Your vision realized', color: 'from-purple-500 to-pink-600' }
+              { icon: '🎯', title: 'Precision Work', desc: 'Every detail matters', color: 'from-primary-500 to-primary-600' },
+              { icon: '⚡', title: 'Fast Process', desc: 'Quick turnaround', color: 'from-accent-500 to-accent-600' },
+              { icon: '🏆', title: 'Quality First', desc: 'Premium materials', color: 'from-primary-600 to-accent-500' },
+              { icon: '✨', title: 'Custom Design', desc: 'Your vision realized', color: 'from-accent-600 to-primary-500' }
             ].map((feature, index) => (
               <motion.div
                 key={feature.title}

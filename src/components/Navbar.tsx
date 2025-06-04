@@ -135,11 +135,35 @@ function Navbar() {
             >
               <Link 
                 to="/" 
-                className="text-xl sm:text-2xl font-bold text-white hover:text-accent-400 transition-all duration-300"
+                className="text-xl sm:text-2xl font-bold transition-all duration-300 group"
               >
-                <span className="text-gradient bg-gradient-to-r from-accent-400 to-secondary-500">
-                  E&J Signs
-                </span>
+                <motion.div 
+                  className="relative inline-flex items-center"
+                  whileHover={{ 
+                    filter: "drop-shadow(0 0 8px rgba(59, 130, 246, 0.4))" 
+                  }}
+                >
+                  {/* Background glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-110"></div>
+                  
+                  {/* Main logo text */}
+                  <span className="relative bg-gradient-to-r from-primary-400 via-primary-500 to-accent-500 bg-clip-text text-transparent font-extrabold tracking-tight">
+                    E&J
+                  </span>
+                  <span className="relative text-white mx-1 font-light">•</span>
+                  <span className="relative bg-gradient-to-r from-accent-500 to-accent-400 bg-clip-text text-transparent font-bold tracking-wide">
+                    Signs
+                  </span>
+                  
+                  {/* Subtle underline animation */}
+                  <motion.div
+                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary-500 to-accent-500 origin-left"
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ width: '100%' }}
+                  />
+                </motion.div>
               </Link>
             </motion.div>
 
@@ -165,7 +189,7 @@ function Navbar() {
                     {isActive(item.path) && (
                       <motion.div
                         layoutId="navbar-indicator"
-                        className="absolute inset-0 bg-gradient-to-r from-accent-500/20 to-secondary-500/20 rounded-xl border border-accent-400/30"
+                        className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-xl border border-primary-400/30"
                         transition={{ duration: 0.3, ease: "easeOut" }}
                       />
                     )}
@@ -182,9 +206,9 @@ function Navbar() {
             >
               <Link to="/contact">
                 <motion.button
-                  className="px-4 xl:px-6 py-2.5 bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-semibold rounded-xl text-sm transition-all duration-300 shadow-lg hover:shadow-xl border border-accent-400/20"
+                  className="px-4 xl:px-6 py-2.5 bg-gradient-to-r from-accent-600 to-accent-500 hover:from-accent-700 hover:to-accent-600 text-white font-semibold rounded-xl text-sm transition-all duration-300 shadow-lg hover:shadow-xl border border-accent-400/20"
                   whileHover={{ 
-                    boxShadow: "0 20px 40px rgba(249, 115, 22, 0.3)",
+                    boxShadow: "0 20px 40px rgba(220, 38, 38, 0.3)",
                     y: -2
                   }}
                 >
@@ -279,7 +303,7 @@ function Navbar() {
                     >
                       <motion.button
                         whileTap={{ scale: 0.98 }}
-                        className="w-full px-4 py-3 bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-semibold rounded-lg text-base transition-all duration-300 shadow-lg"
+                        className="w-full px-4 py-3 bg-gradient-to-r from-accent-600 to-accent-500 hover:from-accent-700 hover:to-accent-600 text-white font-semibold rounded-lg text-base transition-all duration-300 shadow-lg"
                       >
                         Get Quote
                       </motion.button>
