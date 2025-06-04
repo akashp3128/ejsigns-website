@@ -77,7 +77,7 @@ function Testimonials() {
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
-              className="bg-gray-50 p-6 lg:p-8 shadow-md hover:shadow-lg rounded-lg transition-all duration-300 border-l-4 border-primaryRed cursor-pointer"
+              className="bg-gray-50 p-6 lg:p-8 shadow-md hover:shadow-lg rounded-lg transition-all duration-300 border-l-4 border-primary-red cursor-pointer"
             >
               <motion.div 
                 initial={{ scale: 0, rotate: -180 }}
@@ -86,7 +86,7 @@ function Testimonials() {
                 viewport={{ once: true }}
                 className="mb-4"
               >
-                <svg className="w-8 h-8 text-primaryRed mb-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-primary-red mb-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.78-3.018.68-1.062 1.855-1.776 3.527-2.14v-2.718c-2.855.477-5.02 1.638-6.5 3.48-1.48 1.843-2.217 3.925-2.217 6.248 0 1.97.63 3.607 1.888 4.91 1.26 1.303 2.917 1.954 4.972 1.954 1.888 0 3.44-.67 4.653-2.009 1.214-1.34 1.821-2.956 1.821-4.851.001-1.896-.608-3.511-1.821-4.851z"/>
                 </svg>
               </motion.div>
@@ -106,7 +106,7 @@ function Testimonials() {
                 viewport={{ once: true }}
                 className="border-t pt-4"
               >
-                <p className="font-semibold text-primaryBlue text-sm">
+                <p className="font-semibold text-primary-blue text-sm">
                   {testimonial.author}
                 </p>
               </motion.div>

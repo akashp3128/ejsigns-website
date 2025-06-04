@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-primaryBlue to-blue-800 text-white py-12">
+    <footer className="bg-gradient-to-r from-primary-blue to-blue-800 text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="lg:col-span-2">
@@ -28,7 +28,7 @@ function Footer() {
             <div className="space-y-4">
               <a 
                 href="https://instagram.com/ejsigns" 
-                className="flex items-center text-blue-100 hover:text-primaryRed transition-colors duration-200 group"
+                className="flex items-center text-blue-100 hover:text-primary-red transition-colors duration-200 group"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -39,7 +39,7 @@ function Footer() {
               </a>
               <a 
                 href="https://facebook.com/ejsigns" 
-                className="flex items-center text-blue-100 hover:text-primaryRed transition-colors duration-200 group"
+                className="flex items-center text-blue-100 hover:text-primary-red transition-colors duration-200 group"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -50,7 +50,7 @@ function Footer() {
               </a>
               <a 
                 href="https://tiktok.com/@ejsigns" 
-                className="flex items-center text-blue-100 hover:text-primaryRed transition-colors duration-200 group"
+                className="flex items-center text-blue-100 hover:text-primary-red transition-colors duration-200 group"
                 target="_blank"
                 rel="noopener noreferrer"
               >

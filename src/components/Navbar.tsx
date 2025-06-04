@@ -18,7 +18,7 @@ function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-primaryBlue text-white p-4 sticky top-0 shadow-md z-50"
+      className="bg-primary-blue text-white p-4 sticky top-0 shadow-md z-50"
     >
       <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
         <motion.div
@@ -27,7 +27,7 @@ function Navbar() {
         >
           <Link 
             to="/" 
-            className="text-2xl font-bold mb-4 sm:mb-0 hover:text-primaryRed transition-colors duration-200"
+            className="text-2xl font-bold mb-4 sm:mb-0 hover:text-primary-red transition-colors duration-200"
           >
             E&J Signs
           </Link>
@@ -36,7 +36,7 @@ function Navbar() {
           <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
             <Link 
               to="/" 
-              className="hover:text-primaryRed transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-800"
+              className="hover:text-primary-red transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-800"
             >
               Home
             </Link>
@@ -44,7 +44,7 @@ function Navbar() {
           <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
             <Link 
               to="/about" 
-              className="hover:text-primaryRed transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-800"
+              className="hover:text-primary-red transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-800"
             >
               About
             </Link>
@@ -52,7 +52,7 @@ function Navbar() {
           <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
             <Link 
               to="/embroidery" 
-              className="hover:text-primaryRed transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-800"
+              className="hover:text-primary-red transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-800"
             >
               Embroidery
             </Link>
@@ -60,7 +60,7 @@ function Navbar() {
           <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
             <Link 
               to="/printing" 
-              className="hover:text-primaryRed transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-800"
+              className="hover:text-primary-red transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-800"
             >
               Printing
             </Link>
@@ -68,7 +68,7 @@ function Navbar() {
           <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
             <Link 
               to="/contact" 
-              className="hover:text-primaryRed transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-800"
+              className="hover:text-primary-red transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-800"
             >
               Contact
             </Link>

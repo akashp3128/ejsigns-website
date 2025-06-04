@@ -10,7 +10,7 @@ function Embroidery() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
             <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-primaryRed">Hat Embroidery</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-primary-red">Hat Embroidery</h3>
               <p className="mb-4">
                 From baseball caps to beanies, we embroider on all types of headwear. Perfect for sports teams, corporate branding, and promotional events.
               </p>
@@ -23,7 +23,7 @@ function Embroidery() {
             </div>
             
             <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-primaryRed">Bulk Orders</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-primary-red">Bulk Orders</h3>
               <p className="mb-4">
                 We specialize in bulk embroidery orders for teams, organizations, and events. Competitive pricing and fast turnaround times guaranteed.
               </p>
@@ -37,7 +37,7 @@ function Embroidery() {
           </div>
 
           <div className="text-center">
-            <h3 className="text-2xl font-semibold mb-4 text-primaryBlue">Why Choose Our Embroidery?</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-primary-blue">Why Choose Our Embroidery?</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="p-4">
                 <h4 className="font-semibold mb-2">Durability</h4>

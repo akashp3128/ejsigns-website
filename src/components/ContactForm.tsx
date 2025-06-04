@@ -61,7 +61,7 @@ function ContactForm() {
             <h3 className="text-2xl font-semibold mb-6 text-gray-800">Get in Touch</h3>
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="flex-shrink-0 w-6 h-6 bg-primaryRed rounded-full flex items-center justify-center mr-4 mt-1">
+                <div className="flex-shrink-0 w-6 h-6 bg-primary-red rounded-full flex items-center justify-center mr-4 mt-1">
                   <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
@@ -72,7 +72,7 @@ function ContactForm() {
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="flex-shrink-0 w-6 h-6 bg-primaryRed rounded-full flex items-center justify-center mr-4 mt-1">
+                <div className="flex-shrink-0 w-6 h-6 bg-primary-red rounded-full flex items-center justify-center mr-4 mt-1">
                   <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
@@ -83,7 +83,7 @@ function ContactForm() {
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="flex-shrink-0 w-6 h-6 bg-primaryRed rounded-full flex items-center justify-center mr-4 mt-1">
+                <div className="flex-shrink-0 w-6 h-6 bg-primary-red rounded-full flex items-center justify-center mr-4 mt-1">
                   <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
@@ -133,7 +133,7 @@ function ContactForm() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your full name" 
-                  className="w-full p-4 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primaryBlue focus:border-transparent transition-all duration-200 hover:border-gray-300" 
+                  className="w-full p-4 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-200 hover:border-gray-300" 
                   required 
                   disabled={isSubmitting}
                 />
@@ -150,7 +150,7 @@ function ContactForm() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="your.email@example.com" 
-                  className="w-full p-4 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primaryBlue focus:border-transparent transition-all duration-200 hover:border-gray-300" 
+                  className="w-full p-4 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-200 hover:border-gray-300" 
                   required 
                   disabled={isSubmitting}
                 />
@@ -166,7 +166,7 @@ function ContactForm() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us about your project, quantity needed, design ideas, and timeline..." 
-                  className="w-full p-4 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primaryBlue focus:border-transparent transition-all duration-200 hover:border-gray-300 resize-none" 
+                  className="w-full p-4 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-200 hover:border-gray-300 resize-none" 
                   rows={5} 
                   required
                   disabled={isSubmitting}
@@ -179,7 +179,7 @@ function ContactForm() {
                 className={`w-full px-6 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg ${
                   isSubmitting 
                     ? 'bg-gray-400 cursor-not-allowed' 
-                    : 'bg-primaryRed hover:bg-red-700 text-white'
+                    : 'bg-primary-red hover:bg-red-700 text-white'
                 }`}
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}

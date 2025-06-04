@@ -15,7 +15,7 @@ function About() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-primaryBlue">Our Services</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-primary-blue">Our Services</h3>
               <ul className="list-disc list-inside space-y-2">
                 <li>Custom T-shirt Printing</li>
                 <li>Hat Embroidery</li>
@@ -25,7 +25,7 @@ function About() {
               </ul>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-primaryBlue">Industries We Serve</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-primary-blue">Industries We Serve</h3>
               <ul className="list-disc list-inside space-y-2">
                 <li>Small Businesses</li>
                 <li>Sports Teams</li>

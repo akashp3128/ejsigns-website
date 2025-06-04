@@ -10,7 +10,7 @@ function Printing() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
             <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-primaryRed">Custom T-Shirt Printing</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-primary-red">Custom T-Shirt Printing</h3>
               <p className="mb-4">
                 From single pieces to large quantities, we print custom designs on high-quality t-shirts. Perfect for businesses, events, teams, and personal projects.
               </p>
@@ -23,7 +23,7 @@ function Printing() {
             </div>
             
             <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-primaryRed">Design Services</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-primary-red">Design Services</h3>
               <p className="mb-4">
                 Don't have a design? No problem! Our creative team can help bring your vision to life with professional design services.
               </p>
@@ -36,7 +36,7 @@ function Printing() {
             </div>
           </div>
 
-          <div className="bg-primaryBlue text-white p-8 rounded-lg my-12">
+          <div className="bg-primary-blue text-white p-8 rounded-lg my-12">
             <h3 className="text-2xl font-semibold mb-4 text-center">Printing Methods</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -51,22 +51,22 @@ function Printing() {
           </div>
 
           <div className="text-center">
-            <h3 className="text-2xl font-semibold mb-4 text-primaryBlue">Industries We Serve</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-primary-blue">Industries We Serve</h3>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="p-4 border rounded-lg">
-                <h4 className="font-semibold text-primaryRed">Corporate</h4>
+                <h4 className="font-semibold text-primary-red">Corporate</h4>
                 <p>Employee uniforms and promotional items</p>
               </div>
               <div className="p-4 border rounded-lg">
-                <h4 className="font-semibold text-primaryRed">Sports Teams</h4>
+                <h4 className="font-semibold text-primary-red">Sports Teams</h4>
                 <p>Team jerseys and fan merchandise</p>
               </div>
               <div className="p-4 border rounded-lg">
-                <h4 className="font-semibold text-primaryRed">Events</h4>
+                <h4 className="font-semibold text-primary-red">Events</h4>
                 <p>Conference shirts and giveaways</p>
               </div>
               <div className="p-4 border rounded-lg">
-                <h4 className="font-semibold text-primaryRed">Healthcare</h4>
+                <h4 className="font-semibold text-primary-red">Healthcare</h4>
                 <p>Medical facility uniforms</p>
               </div>
             </div>

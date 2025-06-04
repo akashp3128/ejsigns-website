@@ -85,7 +85,7 @@ function VideoSection() {
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="w-16 h-16 mx-auto mb-4 bg-primaryRed rounded-full flex items-center justify-center shadow-lg"
+                  className="w-16 h-16 mx-auto mb-4 bg-primary-red rounded-full flex items-center justify-center shadow-lg"
                 >
                   <motion.svg 
                     initial={{ scale: 0 }}

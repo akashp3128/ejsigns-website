@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 function Hero() {
   return (
-    <section className="bg-gradient-to-r from-primaryBlue to-blue-700 text-white py-20 lg:py-32">
+    <section className="bg-gradient-to-r from-primary-blue to-blue-700 text-white py-20 lg:py-32">
       <div className="container mx-auto text-center px-4">
         <motion.h1 
           initial={{ opacity: 0, y: -50 }}
@@ -38,7 +38,7 @@ function Hero() {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block bg-primaryRed hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="inline-block bg-primary-red hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               Get a Quote
             </motion.button>

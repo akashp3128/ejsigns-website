@@ -1,3 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary-blue: #1e3a8a;
+  --color-primary-red: #dc2626;
+  --font-family-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+}
