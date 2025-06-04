@@ -35,6 +35,13 @@ function Hero() {
     }
   };
 
+  const stats = [
+    { number: '500+', label: 'Projects Completed', icon: '📋' },
+    { number: '50+', label: 'Happy Clients', icon: '😊' },
+    { number: '24h', label: 'Quick Turnaround', icon: '⚡' },
+    { number: '100%', label: 'Quality Guaranteed', icon: '🏆' }
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Layers */}
@@ -188,32 +195,58 @@ function Hero() {
           </Link>
         </motion.div>
 
-        {/* Stats */}
+        {/* Stats Section */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto"
+          className="mt-20 w-full max-w-5xl mx-auto"
         >
-          {[
-            { number: '500+', label: 'Projects Completed' },
-            { number: '50+', label: 'Happy Clients' },
-            { number: '24h', label: 'Quick Turnaround' },
-            { number: '100%', label: 'Quality Guaranteed' }
-          ].map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5 + index * 0.1, duration: 0.6 }}
-              className="text-center"
-            >
-              <div className="text-2xl md:text-3xl font-bold text-accent-400 mb-1">
-                {stat.number}
-              </div>
-              <div className="text-neutral-400 text-sm">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 1.5 + index * 0.1, duration: 0.7, ease: "easeOut" }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -5,
+                  transition: { duration: 0.3 }
+                }}
+                className="group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 cursor-pointer"
+              >
+                {/* Background glow on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-500/10 to-secondary-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Content */}
+                <div className="relative z-10 text-center">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 1.7 + index * 0.1, duration: 0.5, type: "spring" }}
+                    className="text-2xl mb-2 filter drop-shadow-lg"
+                  >
+                    {stat.icon}
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.8 + index * 0.1, duration: 0.6 }}
+                    className="text-3xl md:text-4xl font-bold text-accent-400 mb-2 group-hover:text-accent-300 transition-colors duration-300"
+                  >
+                    {stat.number}
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.9 + index * 0.1, duration: 0.6 }}
+                    className="text-neutral-300 text-sm font-medium leading-tight"
+                  >
+                    {stat.label}
+                  </motion.div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </motion.div>
 
