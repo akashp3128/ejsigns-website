@@ -1,58 +1,82 @@
+import { motion } from 'framer-motion';
+
 function Embroidery() {
   return (
-    <section className="py-16">
-      <div className="container mx-auto max-w-4xl">
-        <h1 className="text-4xl font-bold text-center mb-8">Embroidery Services</h1>
-        <div className="prose prose-lg mx-auto">
-          <p className="text-lg mb-6">
-            Our professional embroidery services bring your designs to life with precision and quality. Specializing in hat embroidery, we use state-of-the-art equipment to create durable, beautiful designs that represent your brand or team with pride.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-primary-red">Hat Embroidery</h3>
-              <p className="mb-4">
-                From baseball caps to beanies, we embroider on all types of headwear. Perfect for sports teams, corporate branding, and promotional events.
-              </p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>High-quality thread materials</li>
-                <li>Precise stitching technology</li>
-                <li>Multiple color options</li>
-                <li>Custom logo placement</li>
-              </ul>
-            </div>
-            
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-primary-red">Bulk Orders</h3>
-              <p className="mb-4">
-                We specialize in bulk embroidery orders for teams, organizations, and events. Competitive pricing and fast turnaround times guaranteed.
-              </p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Volume discounts available</li>
-                <li>Quick turnaround times</li>
-                <li>Consistent quality across all items</li>
-                <li>Professional packaging</li>
-              </ul>
-            </div>
-          </div>
+    <section className="py-20 bg-neutral-50">
+      <div className="container mx-auto px-6">
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl font-bold text-center mb-8 text-primary-900"
+        >
+          <span className="text-gradient bg-gradient-to-r from-accent-500 to-secondary-600">
+            Embroidery Services
+          </span>
+        </motion.h1>
 
-          <div className="text-center">
-            <h3 className="text-2xl font-semibold mb-4 text-primary-blue">Why Choose Our Embroidery?</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-4">
-                <h4 className="font-semibold mb-2">Durability</h4>
-                <p>Our embroidery withstands washing and wear, maintaining its appearance for years.</p>
-              </div>
-              <div className="p-4">
-                <h4 className="font-semibold mb-2">Precision</h4>
-                <p>Advanced machinery ensures every stitch is placed perfectly according to your design.</p>
-              </div>
-              <div className="p-4">
-                <h4 className="font-semibold mb-2">Versatility</h4>
-                <p>We work with various materials and can accommodate complex multi-color designs.</p>
-              </div>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="bg-white/80 backdrop-blur-sm border border-neutral-200 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <h2 className="text-2xl font-bold mb-4 text-primary-900">Custom Logo Embroidery</h2>
+            <p className="text-neutral-600 leading-relaxed mb-6">
+              Professional embroidery services for corporate uniforms, team jerseys, hats, and promotional items. 
+              We use state-of-the-art equipment to ensure precision and durability.
+            </p>
+            <ul className="space-y-2 text-neutral-600">
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-accent-500 rounded-full mr-3"></span>
+                Corporate uniforms and workwear
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-accent-500 rounded-full mr-3"></span>
+                Sports team jerseys and caps
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-accent-500 rounded-full mr-3"></span>
+                Promotional merchandise
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-accent-500 rounded-full mr-3"></span>
+                Custom design digitization
+              </li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="bg-white/80 backdrop-blur-sm border border-neutral-200 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <h2 className="text-2xl font-bold mb-4 text-primary-900">Premium Quality Materials</h2>
+            <p className="text-neutral-600 leading-relaxed mb-6">
+              We only use the highest quality threads and materials to ensure your embroidered items 
+              look professional and last for years to come.
+            </p>
+            <ul className="space-y-2 text-neutral-600">
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-secondary-500 rounded-full mr-3"></span>
+                Premium polyester and rayon threads
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-secondary-500 rounded-full mr-3"></span>
+                Fade-resistant colors
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-secondary-500 rounded-full mr-3"></span>
+                Machine washable results
+              </li>
+              <li className="flex items-center">
+                <span className="w-2 h-2 bg-secondary-500 rounded-full mr-3"></span>
+                Long-lasting durability
+              </li>
+            </ul>
+          </motion.div>
         </div>
       </div>
     </section>
